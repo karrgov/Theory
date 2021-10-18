@@ -1,0 +1,54 @@
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      
+    try //слагаме кода, в който се съмняваме за exceptions
+		{
+		Console.WriteLine("Enter a number: ");
+		int num1 = Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Enter a second number: ");
+		int num2 = Convert.ToInt32(Console.ReadLine());
+		
+		Console.WriteLine(num1 / num2);
+		}
+		catch(Exception e) //catch се изпълнява, ако в try кода има някакъв exception
+		{
+			Console.WriteLine(e.Message);
+		}
+		Console.ReadLine();
+  }
+}
+--------------------------------------------------------
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      
+    try
+		{
+		Console.WriteLine("Enter a number: ");
+		int num1 = Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Enter a second number: ");
+		int num2 = Convert.ToInt32(Console.ReadLine());
+		
+		Console.WriteLine(num1 / num2);
+		}
+		catch(DivideByZeroException e) //можем да имаме отделен catch за различни exceptions
+		{
+			Console.WriteLine(e.Message);
+			Console.WriteLine("You can not divide by zero!");
+		}
+		catch(FormatException e)
+		{
+		    Console.WriteLine(e.Message);
+		    Console.WriteLine("You have to enter a number!");
+		}
+		finally //кодът във finally се изпълнява независимо какво се случва с предните блокове от код
+		{
+		    //finally e незадължителен блок от код
+		}
+		
+		Console.ReadLine();
+  }
+}
