@@ -1,0 +1,88 @@
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      Book book1 = new Book(); //инстанция на класа; обект на класа 
+      book1.title = "Pod igoto";
+      book1.author = "Ivan Vazov"
+      book1.pages = 500;
+      
+      Book book2 = new Book(); //инстанция на класа; обект на класа 
+      book2.title = "Proza";
+      book2.author = "Elin Pelin"
+      book2.pages = 400;
+      
+      Console.WriteLine(book1.title);
+      
+      Console.ReadLine();
+  }
+  class Book //позволява ни да създадем наш собствен datatype; репрезентация на част от реалния свят в самата програма
+  {
+      public string title; //описват какво представлява една книга в програмата ни
+      public string author;
+      public int pages;
+  }
+}
+-------------------------------------------------------------------------------------
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      Book book1 = new Book("Ivan"); //инстанция на класа; обект на класа 
+      book1.title = "Pod igoto";
+      book1.author = "Ivan Vazov"
+      book1.pages = 500;
+      
+      Book book2 = new Book("Gosho"); //инстанция на класа; обект на класа 
+      book2.title = "Proza";
+      book2.author = "Elin Pelin"
+      book2.pages = 400;
+      
+      Console.WriteLine(book1.title);
+      
+      Console.ReadLine();
+  }
+  class Book //позволява ни да създадем наш собствен datatype; репрезентация на част от реалния свят в самата програма
+  {
+      public string title; //описват какво представлява една книга в програмата ни
+      public string author;
+      public int pages;
+      
+      public Book(string name) //конструктор - метод, извикван за изпълнение при всяко едно създаване на инстанция от дадения клас (обект)
+      {
+          Console.WriteLine(name);
+      }
+  }
+}
+------------------------------------------------------------------------------------------------------
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      Book book1 = new Book("Pod igoto", "Ivan Vazov", 500); //инстанция на класа; обект на класа 
+      Book book2 = new Book("Proza", "Elin Pelin", 400); //инстанция на класа; обект на класа 
+      Book book3 = new Book(); //инстанция на класа; обект на класа 
+      
+      Console.WriteLine(book1.title);
+      
+      Console.ReadLine();
+  }
+  class Book //позволява ни да създадем наш собствен datatype; репрезентация на част от реалния свят в самата програма
+  {
+      public string title; //описват какво представлява една книга в програмата ни
+      public string author;
+      public int pages;
+      
+      public Book()
+      {
+          
+      }
+      
+      public Book(string aTitle, string aAuthor, int aPages) //конструктор - метод, извикван за изпълнение при всяко едно създаване на инстанция от дадения клас (обект)
+      {
+          title = aTitle;
+          author = aAuthor;
+          pages = aPages;
+      }
+  }
+}
