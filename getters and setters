@@ -1,0 +1,40 @@
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+    Movie avengers = new Movie("The Avengers", "Joss Whedon", "PG-13");
+    Movie shrek = new Movie("Shrek", "Adam Adamson", "PG");
+    //G, PG, PG-13, R, NR
+    Console.WriteLine(avengers.Rating);
+    Console.ReadLine();
+  }
+}
+class Movie 
+{
+    public string title; //всяка една друга програма или код може да достъпва тези атрибути на класа, ако те са public
+    public string director;
+    private string rating; //когато атрибута е private, той може да бъде достъпван и променян единствено от кода, намиращ се в класа Movie
+    
+    public Movie(string aTitle, aDirector, aRating)
+    {
+        title =  aTitle;
+        director = aDirector;
+        Rating = aRating; //използваме главна буква, за да бъде извикан метода Rating и да бъдат използвани get и set за вид валидация на стойносттаму
+    }
+    
+    public string Rating //свойство; представлява вид метод
+    {
+        get { return rating; } //позволява ни да достъпим или променим стойността на рейтинг, ако е private; връща стойността му
+        set //позволява да конкретизираме стойността на рейтинг в област от няколко единствени възможни стойности
+        {
+            if(value == "G" || value == "PG" || value == "PG-13" || value == "R" || value == "NR")
+            {
+                rating = value;
+            }
+            else 
+            {
+                rating = "NR"; //notrated
+            }
+        }
+    }
+}
